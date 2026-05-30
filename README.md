@@ -133,7 +133,12 @@ curl http://localhost:8083
 
 ### Screenshot
 
-![Curl Test](screenshots/curl_test.png)
+<img width="797" height="509" alt="image" src="https://github.com/user-attachments/assets/9ed4a0e1-19ce-4674-813a-07f657905376" />
+
+<img width="797" height="507" alt="image" src="https://github.com/user-attachments/assets/fd0d294a-45d5-45a7-ac26-5e04c3b45fff" />
+
+<img width="802" height="515" alt="image" src="https://github.com/user-attachments/assets/4fc2b443-5a26-4227-8303-49473d84d078" />
+
 
 ---
 
