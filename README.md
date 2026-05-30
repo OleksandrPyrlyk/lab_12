@@ -56,7 +56,6 @@ docker network ls
 
 <img width="399" height="137" alt="image" src="https://github.com/user-attachments/assets/34157cc5-5cc4-4d2b-b650-80cf2e058e09" />
 
-
 ---
 
 # Uruchomienie kontenerów
@@ -93,7 +92,6 @@ docker ps
 
 <img width="814" height="183" alt="image" src="https://github.com/user-attachments/assets/5f85de8d-f1bc-4854-ba2b-e8011bc1d3e1" />
 
-
 ---
 
 # Dostępność serwerów
@@ -110,16 +108,13 @@ http://localhost:8083
 
 <img width="278" height="182" alt="image" src="https://github.com/user-attachments/assets/bbdd9193-5424-40e0-a0e1-7271e86c8625" />
 
-
 ### Screenshot web2
 
 <img width="294" height="191" alt="image" src="https://github.com/user-attachments/assets/b1aa9c75-eb41-48a9-92eb-6106f39b44e3" />
 
-
 ### Screenshot web3
 
 <img width="276" height="172" alt="image" src="https://github.com/user-attachments/assets/d6045670-01c8-4b84-a708-5bdd6749b9a7" />
-
 
 ---
 
@@ -158,7 +153,7 @@ Wynik potwierdza obecność:
 
 ### Screenshot
 
-![Network Inspect](screenshots/network_inspect.png)
+<img width="689" height="1045" alt="image" src="https://github.com/user-attachments/assets/b06f81f8-2460-40e6-8ca9-1b37c62188a4" />
 
 ---
 
@@ -178,7 +173,7 @@ Wynik:
 
 ### Screenshot
 
-![Read Only Volume](screenshots/read_only_volume.png)
+<img width="377" height="52" alt="image" src="https://github.com/user-attachments/assets/c64e9119-bcda-4daa-90fc-f1e2cf2032b8" />
 
 ---
 
@@ -194,7 +189,7 @@ dir D:\VS_Code\Lab12\logs\web3
 
 ### Screenshot
 
-![Logs Directory](screenshots/logs_directory.png)
+<img width="433" height="672" alt="image" src="https://github.com/user-attachments/assets/fdd9512f-0e0a-463d-86b3-e93201ed6ee3" />
 
 ---
 
@@ -216,7 +211,7 @@ GET / HTTP/1.1 200
 
 ### Screenshot
 
-![Access Logs](screenshots/access_logs.png)
+<img width="808" height="727" alt="image" src="https://github.com/user-attachments/assets/11343c05-1628-4283-b044-88807d6e5474" />
 
 ---
 
