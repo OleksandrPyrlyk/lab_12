@@ -1,6 +1,6 @@
-# Laboratorium 12 — Docker networking and volumes
+# Laboratorium 12 – Docker Networking and Volumes
 
-## Autor
+## Student
 
 **Imię i nazwisko:** Oleksandr Pyrluk
 **Przedmiot:** Programowanie Aplikacji w Chmurze Obliczeniowej
@@ -8,22 +8,24 @@
 
 ---
 
-## Cel zadania
+# Cel laboratorium
 
-Celem laboratorium było uruchomienie trzech kontenerów Docker z serwerem **nginx:latest** w taki sposób, aby:
+Celem laboratorium było:
 
-* kontenery `web1`, `web2`, `web3` były podłączone do jednej sieci mostkowej `lab12net`,
-* każdy serwer był dostępny z poziomu komputera hosta,
-* każdy serwer wyświetlał prostą stronę HTML,
-* strona HTML była zamontowana do kontenerów jako wolumen z uprawnieniami `read-only`,
-* logi każdego serwera były zapisywane w osobnych katalogach na komputerze hosta.
+* utworzenie własnej sieci Docker typu bridge,
+* uruchomienie trzech kontenerów nginx,
+* udostępnienie serwerów na różnych portach hosta,
+* wykorzystanie wolumenów Docker,
+* zastosowanie wolumenów typu read-only,
+* zapis logów nginx do katalogów hosta.
 
 ---
 
-## Struktura projektu
+# Struktura projektu
 
 ```text
 Lab12/
+│
 ├── README.md
 ├── html/
 │   └── index.html
@@ -36,7 +38,9 @@ Lab12/
 
 ---
 
-## Utworzenie sieci Docker
+# Utworzenie sieci Docker
+
+Polecenie:
 
 ```powershell
 docker network create lab12net
@@ -48,23 +52,27 @@ Sprawdzenie sieci:
 docker network ls
 ```
 
+### Screenshot
+
+![Network List](screenshots/network_ls.png)
+
 ---
 
-## Uruchomienie kontenerów
+# Uruchomienie kontenerów
 
-### Kontener web1
+## web1
 
 ```powershell
 docker run -d --name web1 --network lab12net -p 8081:80 -v "D:\VS_Code\Lab12\html:/usr/share/nginx/html:ro" -v "D:\VS_Code\Lab12\logs\web1:/var/log/nginx" nginx:latest
 ```
 
-### Kontener web2
+## web2
 
 ```powershell
 docker run -d --name web2 --network lab12net -p 8082:80 -v "D:\VS_Code\Lab12\html:/usr/share/nginx/html:ro" -v "D:\VS_Code\Lab12\logs\web2:/var/log/nginx" nginx:latest
 ```
 
-### Kontener web3
+## web3
 
 ```powershell
 docker run -d --name web3 --network lab12net -p 8083:80 -v "D:\VS_Code\Lab12\html:/usr/share/nginx/html:ro" -v "D:\VS_Code\Lab12\logs\web3:/var/log/nginx" nginx:latest
@@ -72,23 +80,45 @@ docker run -d --name web3 --network lab12net -p 8083:80 -v "D:\VS_Code\Lab12\htm
 
 ---
 
-## Sprawdzenie działania kontenerów
+# Lista uruchomionych kontenerów
+
+Polecenie:
 
 ```powershell
 docker ps
 ```
 
-Kontenery działają na portach:
+### Screenshot
 
-```text
-web1 -> http://localhost:8081
-web2 -> http://localhost:8082
-web3 -> http://localhost:8083
-```
+![Docker PS](screenshots/docker_ps.png)
 
 ---
 
-## Sprawdzenie dostępności stron
+# Dostępność serwerów
+
+Adresy:
+
+```text
+http://localhost:8081
+http://localhost:8082
+http://localhost:8083
+```
+
+### Screenshot web1
+
+![Web1](screenshots/web1_page.png)
+
+### Screenshot web2
+
+![Web2](screenshots/web2_page.png)
+
+### Screenshot web3
+
+![Web3](screenshots/web3_page.png)
+
+---
+
+# Test przy użyciu CURL
 
 ```powershell
 curl http://localhost:8081
@@ -96,32 +126,35 @@ curl http://localhost:8082
 curl http://localhost:8083
 ```
 
-Każdy serwer zwraca kod:
+### Screenshot
 
-```text
-StatusCode : 200
-StatusDescription : OK
-```
+![Curl Test](screenshots/curl_test.png)
 
 ---
 
-## Sprawdzenie sieci lab12net
+# Sprawdzenie sieci lab12net
+
+Polecenie:
 
 ```powershell
 docker network inspect lab12net
 ```
 
-W wyniku polecenia widoczne są trzy kontenery:
+Wynik potwierdza obecność:
 
-```text
-web1 -> 172.20.0.2
-web2 -> 172.20.0.3
-web3 -> 172.20.0.4
-```
+* web1
+* web2
+* web3
+
+### Screenshot
+
+![Network Inspect](screenshots/network_inspect.png)
 
 ---
 
-## Sprawdzenie wolumenu read-only
+# Sprawdzenie wolumenu Read Only
+
+Polecenie:
 
 ```powershell
 docker inspect web1 | findstr RW
@@ -133,11 +166,15 @@ Wynik:
 "RW": false
 ```
 
-Oznacza to, że katalog ze stroną HTML został zamontowany jako `read-only`.
+### Screenshot
+
+![Read Only Volume](screenshots/read_only_volume.png)
 
 ---
 
-## Sprawdzenie logów
+# Logi nginx
+
+Sprawdzenie katalogów:
 
 ```powershell
 dir D:\VS_Code\Lab12\logs\web1
@@ -145,14 +182,15 @@ dir D:\VS_Code\Lab12\logs\web2
 dir D:\VS_Code\Lab12\logs\web3
 ```
 
-W katalogach znajdują się pliki:
+### Screenshot
 
-```text
-access.log
-error.log
-```
+![Logs Directory](screenshots/logs_directory.png)
 
-Sprawdzenie zawartości logów:
+---
+
+# Zawartość logów
+
+Polecenia:
 
 ```powershell
 type D:\VS_Code\Lab12\logs\web1\access.log
@@ -160,24 +198,39 @@ type D:\VS_Code\Lab12\logs\web2\access.log
 type D:\VS_Code\Lab12\logs\web3\access.log
 ```
 
-W plikach `access.log` widoczne są zapytania HTTP, np.:
+Przykładowy wpis:
 
 ```text
 GET / HTTP/1.1 200
 ```
 
+### Screenshot
+
+![Access Logs](screenshots/access_logs.png)
+
 ---
 
-## Usunięcie kontenerów i sieci
+# Kod strony HTML
 
-```powershell
-docker stop web1 web2 web3
-docker rm web1 web2 web3
-docker network rm lab12net
+Plik:
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Laboratorium 12</title>
+</head>
+<body>
+    <h1>Laboratorium 12</h1>
+    <p>Imię i nazwisko: Oleksandr Pyrluk</p>
+    <p>Serwer nginx działa poprawnie.</p>
+</body>
+</html>
 ```
 
 ---
 
-## Wnioski
+# Wnioski
 
-W ramach laboratorium utworzono własną sieć mostkową Docker `lab12net` oraz uruchomiono trzy kontenery nginx. Każdy kontener został udostępniony na osobnym porcie hosta. Strona HTML została zamontowana do kontenerów jako wolumen tylko do odczytu, a logi każdego serwera są zapisywane w osobnych katalogach na komputerze hosta.
+W ramach laboratorium utworzono własną sieć Docker typu bridge o nazwie **lab12net**. Uruchomiono trzy kontenery nginx (**web1**, **web2**, **web3**) dostępne na różnych portach hosta. Strona HTML została zamontowana jako wolumen typu **read-only**, a logi każdego kontenera są przechowywane w oddzielnych katalogach na komputerze hosta. Testy potwierdziły poprawne działanie wszystkich serwerów oraz prawidłowe zapisywanie logów.
