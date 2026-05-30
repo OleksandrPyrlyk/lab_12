@@ -54,7 +54,8 @@ docker network ls
 
 ### Screenshot
 
-![Network List](screenshots/network_ls.png)
+<img width="399" height="137" alt="image" src="https://github.com/user-attachments/assets/34157cc5-5cc4-4d2b-b650-80cf2e058e09" />
+
 
 ---
 
