@@ -91,7 +91,8 @@ docker ps
 
 ### Screenshot
 
-![Docker PS](screenshots/docker_ps.png)
+<img width="814" height="183" alt="image" src="https://github.com/user-attachments/assets/5f85de8d-f1bc-4854-ba2b-e8011bc1d3e1" />
+
 
 ---
 
@@ -107,15 +108,18 @@ http://localhost:8083
 
 ### Screenshot web1
 
-![Web1](screenshots/web1_page.png)
+<img width="278" height="182" alt="image" src="https://github.com/user-attachments/assets/bbdd9193-5424-40e0-a0e1-7271e86c8625" />
+
 
 ### Screenshot web2
 
-![Web2](screenshots/web2_page.png)
+<img width="294" height="191" alt="image" src="https://github.com/user-attachments/assets/b1aa9c75-eb41-48a9-92eb-6106f39b44e3" />
+
 
 ### Screenshot web3
 
-![Web3](screenshots/web3_page.png)
+<img width="276" height="172" alt="image" src="https://github.com/user-attachments/assets/d6045670-01c8-4b84-a708-5bdd6749b9a7" />
+
 
 ---
 
