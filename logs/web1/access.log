@@ -1,0 +1,5 @@
+172.20.0.1 - - [30/May/2026:00:24:51 +0000] "GET / HTTP/1.1" 200 267 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36" "-"
+172.20.0.1 - - [30/May/2026:00:25:26 +0000] "GET / HTTP/1.1" 200 261 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36" "-"
+172.20.0.1 - - [30/May/2026:00:27:27 +0000] "GET / HTTP/1.1" 200 261 "-" "Mozilla/5.0 (Windows NT; Windows NT 10.0; uk-UA) WindowsPowerShell/5.1.26100.8457" "-"
+172.20.0.1 - - [30/May/2026:00:29:32 +0000] "GET / HTTP/1.1" 200 261 "-" "Mozilla/5.0 (Windows NT; Windows NT 10.0; uk-UA) WindowsPowerShell/5.1.26100.8457" "-"
+172.20.0.1 - - [30/May/2026:00:29:34 +0000] "GET / HTTP/1.1" 200 261 "-" "Mozilla/5.0 (Windows NT; Windows NT 10.0; uk-UA) WindowsPowerShell/5.1.26100.8457" "-"
